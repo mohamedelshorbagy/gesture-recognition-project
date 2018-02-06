@@ -10,18 +10,18 @@
 /images
 /saved
 /.ipynb_checkpoints
-
+/images2
 
 # IDEs and editors
 /.idea
 .project
 .classpath
-.c9/
 *.launch
+.c9/
 .settings/
 *.sublime-workspace
 .ipynb_checkpoints
-
+*.h5
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
