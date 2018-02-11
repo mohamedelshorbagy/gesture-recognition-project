@@ -67,7 +67,6 @@ while(cap.isOpened()):
     #     print(count)
     # frame = cv2.bilateralFilter(frame, 5, 50, 100)  # smoothing filter
     # # frame = cv2.flip(frame, 1)  # flip the frame horizontally
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
     # # frame = cv2.bilateralFilter(frame, 5, 50, 100)  # smoothing filter
     # # frame = cv2.GaussianBlur(frame , (5 , 5) , 0)    
     # # image_adapt = cv2.adaptiveThreshold(frame, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
@@ -108,9 +107,13 @@ while(cap.isOpened()):
     #     col = cv2.bitwise_and(data , data , mask=thresh)
     #     cv2.imshow('col', col)
     if count % 1 == 0:
+        data = frame
         frame =  frame[0:int(cap_region_y_end * frame.shape[0]),int(cap_region_x_begin * frame.shape[1]):frame.shape[1]]
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
         frame = cv2.bilateralFilter(frame, 5, 50, 100)  # smoothing filter
         # kernel = np.ones((5 , 5) , np.uint8)
+        col = cv2.bitwise_and(data , data , mask=thresh)
+        cv2.imshow('col', col)
         frame = cv2.GaussianBlur(frame,(25,25), 0)  
         thresh = cv2.adaptiveThreshold(frame, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
         # dilated = cv2.dilate(thresh , kernel , iterations = 1)              
