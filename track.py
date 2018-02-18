@@ -50,7 +50,7 @@ def main():
 			ignore_mask_color = (255,)*channel_count
 			cv2.fillPoly(mask, [pts], ignore_mask_color)
 			masked_image = cv2.bitwise_and(frame, mask)
-			cv2.imshow('image_masked', masked_image)
+			# cv2.imshow('image_masked', masked_image)
 			xPosition = (pts[0][0] + pts[3][0]) / 2  
 			yPosition = (pts[0][1] + pts[1][1]) / 2
 			cv2.circle(frame, (int(xPosition), int(yPosition)), 4, (255, 0, 0), 2)
